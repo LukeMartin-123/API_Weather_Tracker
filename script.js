@@ -2,9 +2,11 @@ src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 var APIkey = "9e0d8e95fda39b3fbd21fb0a7505ef69";
 // var cityName = //"user input";
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + "Denver" + "&appid=" + APIkey;
-var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat={" + lat + "}&lon={" + lon + "}&appid=" + APIkey;
-var lat = response.coord.lat;
-var lon = response.coord.lon;
+
+
+
+
+
 
 // Ajax Call for city, temp, humidity, wind
 $.ajax({
@@ -12,10 +14,8 @@ $.ajax({
     method: "GET"
 })
 
-
-
     // Store ajax call in an object called response
-    .then(function (response) {
+    .then(function(response) {
         console.log(queryURL);
         console.log(uvQueryURL);
         console.log(response);
@@ -26,19 +26,26 @@ $.ajax({
         $(".lead-temperature").text("Temperature: " + tempF.toFixed(2));
         $(".lead-humidity").text("Humidity: " + response.main.humidity);
         $(".lead-wind").text("Wind Speed: " + response.wind.speed);
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
     });
 
+response()
+var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat={" + lat + "}&lon={" + lon + "}&appid=" + APIkey;
+    
 // Ajax Call for UV index
 $.ajax({
     url: uvQueryURL,
     method: "GET"
+
 })
-
+ // Append UV to jumbotron
     .then(function (uvResponse) {
-       
+        response()
+        
+    // $(".lead-UV").text("UV: " + response.wind.speed);
 
-        // Append UV to jumbotron
-        // $(".lead-UV").text("Wind Speed: " + );
+      
     });
 
 
