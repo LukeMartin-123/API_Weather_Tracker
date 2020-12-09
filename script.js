@@ -21,7 +21,12 @@ $("#find-city").on("click", function (event) {
             console.log(response);
 
             // Append the data for city, date, temperature, Humidity, Wind Speed to the Jumbotron
+            var todayIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.weather.icon)
+            
+            
+            
             $(".info").text(response.name) +$(".current-day").text(now.format("dddd MMMM Do"));
+            $(".info").text(todayIcon);
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
             $(".lead-temperature").text("Temperature: " + tempF.toFixed(2));
             $(".lead-humidity").text("Humidity: " + response.main.humidity);
