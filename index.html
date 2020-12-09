@@ -24,13 +24,31 @@
 <body>
     
 <!-- Container/Jumbotron containing current selected city. Contains date -->
-<!-- 5 rows inside the Container/Jumbotron
-city + date + icon, 
-temperature, 
-humidity, 
-wind speed,
- UV index) 
--->
+<div class="jumbotron">
+    <h1 class="display-4">City + Date</h1>
+    <p class="lead">Temperature</p>
+    <p class="lead">Humidity</p>
+    <p class="lead">Wind Speed</p>
+    <p class="lead">UV Index</p>
+  </div>
+
+
+<aside>
+    <p>Search for a City</p>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+</aside>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Date</p>
+      <p class="card-text">Temp</p>
+      <p class="card-text">Humidity</p>
+    </div>
+  </div>
 
 
 <!-- Under the jumbotron create 5 cards. They can be identical but will populate the 5 day forecast from the API-->

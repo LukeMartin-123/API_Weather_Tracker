@@ -1,5 +1,5 @@
 header {
-    background-color: #606060;
+    background-color: #404040;
     text-align: center;
     width: 100%;
     padding: 20px;
@@ -8,3 +8,39 @@ header {
 header h1 {
     color: white;
 }
+
+aside {
+    position: absolute;
+    height: 100%;
+    margin-top: 30px;
+    margin-left: 10px;
+    padding-right: 10px;
+    float: left;
+    background-color: #F0F0F0
+}
+
+.jumbotron {
+    height:100%;
+    width: 75%;
+    float: right;
+    margin-top: 20px;
+    background-color: white;
+    border-style: solid;
+    border-color: gray;
+    padding-top: 10px;
+}
+
+.display-4 {
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+.card {
+    clear: both;
+    margin-left: 25%;
+    padding-bottom: 50px;
+    background-color: #0066FF;
+    color: white;
+
+}
+
