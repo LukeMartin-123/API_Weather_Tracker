@@ -1,5 +1,6 @@
 src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 var APIkey = "9e0d8e95fda39b3fbd21fb0a7505ef69";
+const now = moment();
 
 // Search bar accepts input and retrieves the proper API
 $("#find-city").on("click", function (event) {
@@ -20,7 +21,7 @@ $("#find-city").on("click", function (event) {
             console.log(response);
 
             // Append the data for city, date, temperature, Humidity, Wind Speed to the Jumbotron
-            $(".info").text(response.name);
+            $(".info").text(response.name) +$(".current-day").text(now.format("dddd MMMM Do"));
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
             $(".lead-temperature").text("Temperature: " + tempF.toFixed(2));
             $(".lead-humidity").text("Humidity: " + response.main.humidity);
@@ -41,20 +42,41 @@ $("#find-city").on("click", function (event) {
                     console.log(uvQueryURL);
                     $(".lead-UV").text("UV: " + uvResponse.value);
                 });
+            var forecastQueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
+            // Ajax Call for 5 day forecast
+            $.ajax({
+                url: forecastQueryURL,
+                method: "GET"
+            })
 
-        });
+                // Store ajax call in an object called forcastResponse
+                .then(function (forecastResponse) {
+                    console.log(forecastQueryURL);
+                    // $(".card1-Date").text("Date: " + );
+                    var forecastTemp=(forecastResponse.list[4].main.temp- 273.15) * 1.80 + 32;
+                    $(".card1-Temperature").text("Temperature: " + forecastTemp.toFixed(2));
+                    $(".card1-Humidity").text("Humidity: " + forecastResponse.list[4].main.humidity);
 
-    var forecastQueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
-    // Ajax Call for 5 day forecast
-    $.ajax({
-        url: forcastQueryURL,
-        method: "GET"
-    })
+                    var forecastTemp2=(forecastResponse.list[12].main.temp- 273.15) * 1.80 + 32;
+                    $(".card2-Temperature").text("Temperature: " + forecastTemp2.toFixed(2));
+                    $(".card2-Humidity").text("Humidity: " + forecastResponse.list[12].main.humidity);
 
-        // Store ajax call in an object called forcastResponse
-        .then(function (forecastResponse) {
-            console.log(forcastQueryURL);
-            console.log(forecastResponse);
+                    var forecastTemp3=(forecastResponse.list[20].main.temp- 273.15) * 1.80 + 32;
+                    $(".card3-Temperature").text("Temperature: " + forecastTemp3.toFixed(2));
+                    $(".card3-Humidity").text("Humidity: " + forecastResponse.list[20].main.humidity);
+
+                    var forecastTemp4=(forecastResponse.list[28].main.temp- 273.15) * 1.80 + 32;
+                    $(".card4-Temperature").text("Temperature: " + forecastTemp4.toFixed(2));
+                    $(".card4-Humidity").text("Humidity: " + forecastResponse.list[28].main.humidity);
+
+                    var forecastTemp5=(forecastResponse.list[36].main.temp- 273.15) * 1.80 + 32;
+                    $(".card5-Temperature").text("Temperature: " + forecastTemp5.toFixed(2));
+                    $(".card5-Humidity").text("Humidity: " + forecastResponse.list[36].main.humidity);
+
+
+
+                });
+
 
         });
 });
