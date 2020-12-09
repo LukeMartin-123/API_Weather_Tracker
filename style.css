@@ -55,6 +55,7 @@ h4 {
 
 h5 {
     margin-bottom: 20px;
+    text-decoration: underline;
 }
 
 .row {
@@ -71,16 +72,14 @@ h5 {
     margin-right: 10%;
 }
 
-.card-Date {
+.card1-Date, .card2-Date, .card3-Date, .card4-Date, .card5-Date {
     margin-top: 10px;
     margin-left: 5px;
+    text-decoration: underline;
 }
 
-.card-Temperature {
+.card1-Temperature, .card2-Temperature, .card3-Temperature, .card4-Temperature, .card5-Temperature, .card1-Humidity, .card2-Humidity, .card3-Humidity, .card4-Humidity, .card5-Humidity {
     margin-left: 5px;
 }
 
-.card-Humidity {
-    margin-left: 5px;
-}
-}
+
