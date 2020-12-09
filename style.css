@@ -12,11 +12,18 @@ header h1 {
 aside {
     position: absolute;
     height: 100%;
-    margin-top: 30px;
-    margin-left: 10px;
     padding-right: 10px;
     float: left;
     background-color: #F0F0F0
+}
+
+.aside-p {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.form-inline {
+    margin-left: 10px;
 }
 
 .jumbotron {
@@ -24,13 +31,15 @@ aside {
     width: 75%;
     float: right;
     margin-top: 20px;
+    margin-right: -2px;
     background-color: white;
     border-style: solid;
-    border-color: gray;
+    border-width: thin;
+    border-color: #A9A9A9;
     padding-top: 10px;
 }
 
-.display-4 {
+.info {
     margin-bottom: 20px;
     margin-top: auto;
 }
