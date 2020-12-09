@@ -17,7 +17,6 @@ $.ajax({
     // Store ajax call in an object called response
     .then(function(response) {
         console.log(queryURL);
-        console.log(uvQueryURL);
         console.log(response);
 
         // Append the data for city, date, temperature, Humidity, Wind Speed to the Jumbotron
@@ -26,12 +25,14 @@ $.ajax({
         $(".lead-temperature").text("Temperature: " + tempF.toFixed(2));
         $(".lead-humidity").text("Humidity: " + response.main.humidity);
         $(".lead-wind").text("Wind Speed: " + response.wind.speed);
-        var lat = response.coord.lat;
-        var lon = response.coord.lon;
+       lat = response.coord.lat;
+       lon = response.coord.lon;
     });
+  
+    var lat;
+    var lon;
 
-response()
-var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat={" + lat + "}&lon={" + lon + "}&appid=" + APIkey;
+var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat={"+lat+"}&lon={"+lon+"}&appid="+APIkey;
     
 // Ajax Call for UV index
 $.ajax({
@@ -41,8 +42,7 @@ $.ajax({
 })
  // Append UV to jumbotron
     .then(function (uvResponse) {
-        response()
-        
+        console.log(uvQueryURL);
     // $(".lead-UV").text("UV: " + response.wind.speed);
 
       
