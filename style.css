@@ -44,12 +44,39 @@ aside {
     margin-top: auto;
 }
 
-.card {
+.forecast {
     clear: both;
-    margin-left: 25%;
-    padding-bottom: 50px;
-    background-color: #0066FF;
-    color: white;
-
 }
 
+h4 {
+    font-size: 30px;
+    margin-left: 20%;
+}
+
+.row {
+    clear: both;
+    margin-left: 22%;
+    padding-bottom: 50px;
+}
+
+.card {
+    clear: both;
+    padding-bottom: 100px;
+    background-color: #0066FF;
+    color: white;
+    margin-right: 10%;
+}
+
+.card-Date {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.card-Temperature {
+    margin-left: 5px;
+}
+
+.card-Humidity {
+    margin-left: 5px;
+}
+}
