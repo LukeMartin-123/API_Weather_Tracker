@@ -11,6 +11,7 @@ var searchedCities = [];
 init();
 
 function renderCities() {
+    cityList.innerHTML = "";
     // Render a new li for each city entered
     for (var i = 0; i < searchedCities.length; i++) {
         var newCity = searchedCities[i];
@@ -19,7 +20,7 @@ function renderCities() {
         li.textContent = newCity;
         li.setAttribute("data-index", i);
 
-        cityList.appendChild(li);
+        cityList.appendChild("li");
     }
 }
 
@@ -41,7 +42,7 @@ function storeCities() {
 }
 
 // When Form is submitted...
-searchForm.addEventListener("submit", function(event) {
+searchForm.on("submit", function(event) {
     event.preventDefault();
 
     var cityText = searchInput.value.trim();
@@ -58,8 +59,6 @@ searchForm.addEventListener("submit", function(event) {
     storeCities();
     renderCities();
 });
-
-
 
 
 
