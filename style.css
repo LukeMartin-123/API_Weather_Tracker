@@ -70,6 +70,7 @@ h5 {
     background-color: #0066FF;
     color: white;
     margin-right: 10%;
+    height: auto;
 }
 
 .card1-Date, .card2-Date, .card3-Date, .card4-Date, .card5-Date {
