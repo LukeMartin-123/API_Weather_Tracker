@@ -8,7 +8,7 @@ var cityList = $("#cityList");
 
 var searchedCities = [];
 
-init();
+// init();
 
 function renderCities() {
     cityList.innerHTML = "";
@@ -24,17 +24,17 @@ function renderCities() {
     }
 }
 
-function init() {
-    // Get stored cities from localStorage
-    // Parsing the JSON string to an object
-    var storedCities = JSON.parse(localStorage.getItem("cities"));
+// function init() {
+//     // Get stored cities from localStorage
+//     // Parsing the JSON string to an object
+//     var storedCities = JSON.parse(localStorage.getItem("cities"));
 
-    if (storedCities !== null) {
-        searchedCities = storedCities;
-    }
-    // Render cities to the DOM
-    renderCities();
-}
+//     if (storedCities !== null) {
+//         searchedCities = storedCities;
+//     }
+//     // Render cities to the DOM
+//     renderCities();
+// }
 
 function storeCities() {
     // Stringify and set "cities" key in localStorage to searchCities array
