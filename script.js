@@ -21,12 +21,12 @@ $("#find-city").on("click", function (event) {
             console.log(response);
 
             // Append the data for city, date, temperature, Humidity, Wind Speed to the Jumbotron
-            var todayIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.weather.icon)
+            var todayIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
             
             
             
             $(".info").text(response.name) +$(".current-day").text(now.format("dddd MMMM Do"));
-            $(".info").text(todayIcon);
+            $(".info").append(todayIcon);
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
             $(".lead-temperature").text("Temperature: " + tempF.toFixed(2));
             $(".lead-humidity").text("Humidity: " + response.main.humidity);
@@ -60,30 +60,40 @@ $("#find-city").on("click", function (event) {
                     // $(".card1-Date").text("Date: " + );
                     var oneDayForward = new moment().add(1, 'day');
                     $(".card1-Date").text(oneDayForward.format('dddd MMMM DD'))
+                    var dayTwoIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastResponse.list[4].weather[0].icon + ".png");
+                    $(".card1-Date").append(dayTwoIcon);
                     var forecastTemp=(forecastResponse.list[4].main.temp- 273.15) * 1.80 + 32;
                     $(".card1-Temperature").text("Temperature: " + forecastTemp.toFixed(2));
                     $(".card1-Humidity").text("Humidity: " + forecastResponse.list[4].main.humidity);
 
                     var twoDayForward = new moment().add(2, 'day');
                     $(".card2-Date").text(twoDayForward.format('dddd MMMM DD'))
+                    var dayThreeIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastResponse.list[12].weather[0].icon + ".png");
+                    $(".card2-Date").append(dayThreeIcon);
                     var forecastTemp2=(forecastResponse.list[12].main.temp- 273.15) * 1.80 + 32;
                     $(".card2-Temperature").text("Temperature: " + forecastTemp2.toFixed(2));
                     $(".card2-Humidity").text("Humidity: " + forecastResponse.list[12].main.humidity);
 
                     var threeDayForward = new moment().add(3, 'day');
                     $(".card3-Date").text(threeDayForward.format('dddd MMMM DD'))
+                    var dayFourIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastResponse.list[20].weather[0].icon + ".png");
+                    $(".card3-Date").append(dayFourIcon);
                     var forecastTemp3=(forecastResponse.list[20].main.temp- 273.15) * 1.80 + 32;
                     $(".card3-Temperature").text("Temperature: " + forecastTemp3.toFixed(2));
                     $(".card3-Humidity").text("Humidity: " + forecastResponse.list[20].main.humidity);
 
                     var fourDayForward = new moment().add(4, 'day');
                     $(".card4-Date").text(fourDayForward.format('dddd MMMM DD'))
+                    var dayFiveIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastResponse.list[28].weather[0].icon + ".png");
+                    $(".card4-Date").append(dayFiveIcon);
                     var forecastTemp4=(forecastResponse.list[28].main.temp- 273.15) * 1.80 + 32;
                     $(".card4-Temperature").text("Temperature: " + forecastTemp4.toFixed(2));
                     $(".card4-Humidity").text("Humidity: " + forecastResponse.list[28].main.humidity);
 
                     var fiveDayForward = new moment().add(5, 'day');
                     $(".card5-Date").text(fiveDayForward.format('dddd MMMM DD'))
+                    var daySixIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastResponse.list[36].weather[0].icon + ".png");
+                    $(".card5-Date").append(daySixIcon);
                     var forecastTemp5=(forecastResponse.list[36].main.temp- 273.15) * 1.80 + 32;
                     $(".card5-Temperature").text("Temperature: " + forecastTemp5.toFixed(2));
                     $(".card5-Humidity").text("Humidity: " + forecastResponse.list[36].main.humidity);
