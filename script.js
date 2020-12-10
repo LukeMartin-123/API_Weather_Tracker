@@ -8,8 +8,6 @@ var cityList = $("#cityList");
 
 var searchedCities = [];
 
-// init();
-
 function renderCities() {
     cityList.innerHTML = "";
     // Render a new li for each city entered
@@ -24,17 +22,6 @@ function renderCities() {
     }
 }
 
-// function init() {
-//     // Get stored cities from localStorage
-//     // Parsing the JSON string to an object
-//     var storedCities = JSON.parse(localStorage.getItem("cities"));
-
-//     if (storedCities !== null) {
-//         searchedCities = storedCities;
-//     }
-//     // Render cities to the DOM
-//     renderCities();
-// }
 
 function storeCities() {
     // Stringify and set "cities" key in localStorage to searchCities array
@@ -66,7 +53,7 @@ searchForm.on("submit", function(event) {
 $("#find-city").on("click", function (event) {
     event.preventDefault();
     var city = $("#city-input").val();
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey;
 
 
     // Ajax Call for city, temp, humidity, wind
@@ -95,7 +82,7 @@ $("#find-city").on("click", function (event) {
             var lon = response.coord.lon;
 
             // Set a variable for the UV Index API
-            var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
+            var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon + "&appid=" + APIkey;
 
             // Ajax Call for UV index API
             $.ajax({
@@ -157,8 +144,6 @@ $("#find-city").on("click", function (event) {
                     var forecastTemp5 = (forecastResponse.list[36].main.temp - 273.15) * 1.80 + 32;
                     $(".card5-Temperature").text("Temperature: " + forecastTemp5.toFixed(2));
                     $(".card5-Humidity").text("Humidity: " + forecastResponse.list[36].main.humidity);
-
-
 
                 });
 
